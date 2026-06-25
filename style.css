@@ -98,6 +98,75 @@ body {
 .skill-list strong { color: var(--accent); margin-right: 6px; }
 .placeholder { color: var(--muted); font-style: italic; }
 
+/* 技术栈徽章 */
+.tech-group { margin-bottom: 20px; }
+.tech-group:last-child { margin-bottom: 0; }
+.tech-cat {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.2px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(30, 35, 50, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: default;
+}
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(30, 35, 50, 0.22);
+}
+/* 浅色背景徽章使用深色文字 */
+.badge.light { color: #1f2328; }
+
+/* 工作经历 */
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 16px;
+}
+.job-title { font-weight: 700; font-size: 16px; color: var(--ink); }
+.job-period { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.project { margin-bottom: 18px; }
+.project:last-child { margin-bottom: 0; }
+.project-name {
+  font-size: 15px;
+  color: var(--accent-2);
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent-2);
+}
+.project-list { list-style: none; }
+.project-list li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  color: #3f444d;
+}
+.project-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 /* 页脚 */
 .footer {
   text-align: center;
