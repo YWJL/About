@@ -1,0 +1,24 @@
+index.html
+  s_56e4f9bc038589::t_115ff02ce1da2b 140-141
+  s_56e4f9bc038589::t_a9651837c5312c 17
+style.css
+  s_56e4f9bc038589::t_ced8f266daf446 105-109
+  s_56e4f9bc038589::t_5150ce3a02b117 171
+  s_56e4f9bc038589::t_c10e278121c80f 102,111,115-116,118,124-125,137,143-145,148-150,153-154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "ea4d792f22703ade6071854e731484d9fd8112af",
+  "prompts": {},
+  "sessions": {
+    "s_56e4f9bc038589": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7065c49d-bbce-451c-9e96-eb45a8634ae9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "YWJL <YWJL@users.noreply.github.com>"
+    }
+  }
+}
