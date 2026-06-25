@@ -99,35 +99,63 @@ body {
 .placeholder { color: var(--muted); font-style: italic; }
 
 /* 技术栈徽章 */
-.tech-group { margin-bottom: 20px; }
+.tech-group { margin-bottom: 22px; }
 .tech-group:last-child { margin-bottom: 0; }
 .tech-cat {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 12px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #1f2328;
+  margin-bottom: 14px;
 }
-.badges { display: flex; flex-wrap: wrap; gap: 9px; }
+.badges { display: flex; flex-wrap: wrap; gap: 11px; }
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 13px;
-  border-radius: 7px;
+  gap: 7px;
+  height: 30px;
+  padding: 0 13px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.2px;
   line-height: 1;
-  box-shadow: 0 2px 6px rgba(30, 35, 50, 0.12);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 5px rgba(30, 35, 50, 0.16);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
   cursor: default;
+}
+/* 真实品牌 logo */
+.badge .bi {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  display: block;
+}
+/* 无官方 logo 时的首字母占位 */
+.badge[data-ico]::before {
+  content: attr(data-ico);
+  flex: none;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 .badge:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(30, 35, 50, 0.22);
+  box-shadow: 0 7px 16px rgba(30, 35, 50, 0.26);
+  filter: saturate(1.12);
 }
 /* 浅色背景徽章使用深色文字 */
 .badge.light { color: #1f2328; }
+.badge.light[data-ico]::before { background: rgba(0, 0, 0, 0.12); color: #1f2328; }
 
 /* 工作经历 */
 .job-head {
@@ -140,7 +168,7 @@ body {
   border-bottom: 2px solid var(--border);
   margin-bottom: 16px;
 }
-.job-title { font-weight: 700; font-size: 16px; color: var(--ink); }
+.job-title { font-weight: 800; font-size: 18px; color: #1f2328; letter-spacing: 0.3px; }
 .job-period { color: var(--muted); font-size: 14px; white-space: nowrap; }
 .project { margin-bottom: 18px; }
 .project:last-child { margin-bottom: 0; }
