@@ -1,0 +1,30 @@
+style.css
+  s_62fcf54a12bbde::t_20be4f05832795 132-169
+  s_56e4f9bc038589::t_b95a298504181e 101-131
+index.html
+  s_56e4f9bc038589::t_1615dcf37f13bd 6-7,14-17,19-20,31-33,35-37,42,44-122,125,128-163,166-169,174
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "fbdac4fa59bdc82c6e104273dc425fadac1ca589",
+  "prompts": {},
+  "sessions": {
+    "s_56e4f9bc038589": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7065c49d-bbce-451c-9e96-eb45a8634ae9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "YWJL <YWJL@users.noreply.github.com>"
+    },
+    "s_62fcf54a12bbde": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "14cddb9b-2dbb-4e11-a81a-b82c596cd995",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "YWJL <YWJL@users.noreply.github.com>"
+    }
+  }
+}
