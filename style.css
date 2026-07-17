@@ -208,3 +208,14 @@ body {
   .card { padding: 22px 18px; }
   .info-table th { width: 88px; }
 }
+
+/* 打印 / 导出 PDF */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #fff; }
+  .container { margin-top: 0; padding-top: 16px; }
+  .card { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
+  .job, .project, .tech-group, .badge { break-inside: avoid; }
+  .links a { border-color: rgba(255, 255, 255, 0.7); }
+  .footer { padding: 16px 20px; }
+}
