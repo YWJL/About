@@ -54,6 +54,7 @@
         <li>具备<strong>全链路工程能力</strong>：从数据清洗、ES 同步、接口开发到各端对接全流程负责，并落地日志监控、CI/CD 与服务治理。</li>
         <li>正向 <strong>AI Agent / LLM 工程</strong>延伸：基于 OpenAI SDK 落地流式响应与 Prompt 统一管理，推动业务侧 AI 能力快速接入。</li>
         <li>深度使用 <strong>Claude Code</strong> AI 编程助手进行日常开发，以 AI 编码 + 人工 Code Review 协作模式保障交付质量，沉淀业务领域 Prompt 模板库，覆盖代码生成、重构、调试、文档编写等全流程，显著提升开发效率与交付质量。</li>
+        <li>不仅深度使用 Claude Code，更<strong>从 0 到 1 手写一个面向 Claude Code 对齐的 AI Code Agent</strong>（agent 循环、可插拔工具面、安全边界），以「造轮子」方式吃透 agent 内核，形成「使用 + 原理」双向闭环。</li>
       </ul>
     </section>
 
@@ -82,6 +83,24 @@
       </div>
     </section>
 
+    <!-- 项目经历 -->
+    <section class="card">
+      <h2 class="section-title">项目经历</h2>
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-name">ai-coding · 面向 Claude Code 对齐的 AI Code Agent</h3>
+          <span class="job-period">2026-09-01 至今</span>
+        </div>
+        <ul class="project-list">
+          <li>从 0 到 1 手写一个<strong>面向 Claude Code 对齐的 AI Code Agent</strong>，作为学习 agent 工作流的起点，吃透「<strong>循环 + 工具 + 上下文 + 安全边界</strong>」内核：模型只负责思考与发布指令，动手执行与校验全部由代码接管。</li>
+          <li>基于 TypeScript + @anthropic-ai/sdk 对接 DeepSeek 的 <strong>Anthropic 兼容端点</strong>（deepseek-v4-pro 模型）实现 <strong>agent 主循环</strong>，驱动模型「思考 → 调工具 → 收结果」协同迭代，并遵守无状态消息协议，每轮重发完整历史以保持上下文一致。</li>
+          <li>抽象「definition(schema) + implementation(handler)」工具模型与注册表分发机制，实现读/写/删文件、列目录、grep 搜索、命令执行等<strong>可插拔工具面</strong>，模型仅产出「调用哪个工具 + 什么参数」，由 handler 实际动手。</li>
+          <li>构建多层<strong>安全边界</strong>：路径穿越防护（WORKSPACE_ROOT 校验）、run-command 命令白名单防御、confirm 人工确认门（human-in-the-loop），落实「工具参数是不可信输入」的安全模型。</li>
+          <li>当前工具面与安全边界已落地，<strong>后续重点推进上下文管理（compaction / memory）与更复杂的交互（子 agent、多 agent 编排）</strong>，逐步向完整 Claude Code 能力对齐。</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- 技术栈 -->
     <section class="card">
       <h2 class="section-title">技术栈</h2>
@@ -102,6 +121,7 @@
         <h3 class="tech-cat">AI &amp; LLM</h3>
         <div class="badges">
           <span class="badge" data-ico="CC" style="background:#d97706">Claude Code</span>
+          <span class="badge" data-ico="DS" style="background:#4d6bfe">DeepSeek</span>
           <span class="badge" style="background:#412991"><img class="bi" src="https://cdn.simpleicons.org/openai/white" alt="technology icon" onerror="this.style.display='none'">OpenAI</span>
           <span class="badge" data-ico="AI" style="background:#8b5cf6">AI Agent</span>
           <span class="badge" data-ico="PE" style="background:#0891b2">Prompt Engineering</span>

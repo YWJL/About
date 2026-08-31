@@ -170,6 +170,15 @@ body {
 .job-period { color: var(--muted); font-size: 14px; white-space: nowrap; }
 .project { margin-bottom: 18px; }
 .project:last-child { margin-bottom: 0; }
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+}
+.project-head .project-name { margin-bottom: 0; }
 .project-name {
   font-size: 15px;
   color: var(--accent-2);
