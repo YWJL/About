@@ -49,10 +49,10 @@
     <section class="card">
       <h2 class="section-title">个人优势</h2>
       <ul class="skill-list">
-        <li>5 年 Node.js 后端经验，深耕 <strong>NestJS / Express / TypeScript</strong> 服务端开发，参与支撑月请求量超 <strong>128 亿</strong>的高并发核心服务稳定运行。</li>
-        <li>擅长<strong>框架重构与架构治理</strong>：主导 Express → NestJS 迁移，实践模块化、依赖注入、全局拦截器与异常过滤器，提升复杂业务的可维护性与迭代效率。</li>
-        <li>具备<strong>全链路工程能力</strong>：从数据清洗、ES 同步、接口开发到客户端对接，并落地日志监控、限流鉴权、CI/CD、Docker 与 K8s 服务治理。</li>
-        <li>具备 <strong>LLM / AI Agent 工程实践</strong>：基于 OpenAI SDK 与 Anthropic 兼容协议实现流式响应、Prompt 与模型统一管理，并独立拆分 Agent 网关与 Worker。</li>
+        <li>5 年 Node.js 后端经验，参与月请求量超 <strong>128 亿</strong>的核心服务建设与稳定性治理，熟悉从数据处理、接口交付到线上运维的完整链路。</li>
+        <li>主导核心服务从 Express 向 NestJS 演进，通过模块化、依赖注入、装饰器路由和统一拦截器/异常处理，降低复杂业务耦合并统一接口治理方式。</li>
+        <li>围绕线上问题定位和流量治理，建设 ELK 链路日志、Redis 缓存/分布式锁/限流，并落地 Docker、Kubernetes 与 GitLab CI/CD 流水线。</li>
+        <li>开展 LLM / Agent 工程验证：实现模型流式输出和工具调用闭环，并拆分 NestJS 网关与独立 Worker，探索长任务、多轮会话和任务调度方案。</li>
         <li>深度使用 <strong>Claude Code</strong> AI 编程助手，以 AI 编码 + 人工 Code Review 协作模式覆盖代码生成、重构、调试与文档编写，沉淀可复用的业务 Prompt 模板。</li>
       </ul>
     </section>
@@ -70,8 +70,7 @@
           <h3 class="project-name">启信宝 APP 核心服务与架构治理</h3>
           <ul class="project-list">
             <li>主导启信宝 APP 版本需求开发，覆盖集团、查风险、司法大数据、团队版、主搜等核心模块；参与表结构设计、PRD 评审与进度管理，负责从数据清洗、ES 同步到接口开发、客户端对接的完整链路。</li>
-            <li>基于 <strong>NestJS + TypeScript</strong> 构建模块化后端服务，使用装饰器路由、依赖注入、全局拦截器与异常过滤器组织复杂业务，支撑月请求量超 <strong>128 亿</strong>的核心服务稳定运行。</li>
-            <li>主导 Express → NestJS 框架重构与接口迁移，解耦复杂模块、代码量缩减约 20%，并统一请求校验、响应封装、鉴权限流与异常处理规范。</li>
+            <li>基于公司核心服务的 NestJS + TypeScript 框架推进 Express → NestJS 迁移，采用模块化、依赖注入、装饰器路由及全局拦截器/异常过滤器组织业务，统一请求校验、响应封装、鉴权限流与异常处理；迁移后相关代码量缩减约 20%。</li>
             <li>设计全链路日志监控体系：统一日志字段规范，打通客户端 → 服务端 → 后台 → ES 的链路追踪，结合 ELK 将线上故障定位时间由小时级缩短至分钟级。</li>
             <li>维护 OpenResty 网关层，负责反向代理、负载均衡与流量调度；结合 Redis 实现缓存、分布式锁与接口限流，保障后端集群高可用。</li>
             <li>搭建 GitLab CI/CD 多环境（SIT / UAT / PROD）流水线：集成 ESLint 卡点、Docker 镜像构建推送私有 Registry、K8s 部署与 HPA 自动扩缩容，并通过脚本动态拉取 Consul 配置，实现配置与代码解耦的标准化持续交付。</li>
@@ -91,12 +90,11 @@
           <span class="job-period">2026-09-01 至今</span>
         </div>
         <ul class="project-list">
-          <li>将前期面向 Claude Code 的单体 Agent Loop 升级为<strong>NestJS + Agent 服务框架</strong>：NestJS 网关负责鉴权、限频、路由与流式透传，独立 Worker 负责 Agent Runtime、会话、工具执行与模型调用，形成清晰的运行边界。</li>
-          <li>实现可迭代的 <strong>Agent Runtime</strong>：基于 TypeScript + <strong>@anthropic-ai/sdk</strong> 对接 DeepSeek Anthropic 兼容端点，驱动「模型推理 → 工具调用 → 结果回填 → 继续推理」循环，并通过最大轮次、AbortSignal 和任务生命周期控制执行。</li>
-          <li>设计长对话任务模型：以 <strong>conversationId</strong> 标识上下文、以 <strong>taskId</strong> 标识单轮执行；启动接口立即返回 taskId，Agent 在后台运行，支持同会话串行、主动停止、会话重置和客户端断线后继续订阅。</li>
-          <li>设计 <strong>SSE 事件协议</strong>，统一输出 queued、start、delta、tool_call、tool_result、done、error 等 Agent 生命周期事件；通过事件序号、Last-Event-ID / cursor 和事件缓冲实现断线续订与断档补发。</li>
-          <li>抽象「definition(schema) + implementation(handler)」工具模型与注册表，落地 list_files、search_content、read_file、write_file、run_command 等可插拔工具，使模型决策、工具执行和客户端连接彼此解耦。</li>
-          <li>构建 Agent 工具安全边界：WORKSPACE_ROOT 路径与符号链接越界校验、Shell 元字符拦截、可执行程序与 Git / npm 子命令白名单、命令超时，并设计低权限容器隔离方案；同时规划 MySQL 会话事实源与 Redis 队列/广播/缓存边界，当前骨架保留进程内实现用于本地验证。</li>
+            <li>基于公司 NestJS 框架实践，构建 <strong>NestJS 网关 + 独立 Worker</strong> 的方向验证骨架（由 app-v8 裁剪而来）：网关承接鉴权、限频和 SSE 透传，Worker 承接 Agent 执行，验证服务职责拆分与独立扩缩容边界。</li>
+            <li>实现可迭代的 <strong>LLM Agent Runtime</strong>：使用 TypeScript、<strong>@anthropic-ai/sdk</strong> 与 DeepSeek Anthropic 兼容接口，串联模型生成、tool_use、工具结果回填和多轮推理，并加入轮数上限、取消信号与任务生命周期控制，验证可中断的长任务执行流程。</li>
+            <li>实现 <strong>conversationId / taskId</strong> 两级任务标识及 SSE 事件流：前者关联多轮对话，后者关联单轮任务；通过事件序号与 Last-Event-ID / cursor 支持断线续订，避免重连时重复发起模型调用；排队状态和多副本路由列入后续设计。</li>
+            <li>抽象基于 schema 与 handler 的工具注册机制，验证文件读写、内容搜索和命令执行工具接入；通过工作区路径/符号链接校验、命令白名单和超时约束，划定工具执行边界。</li>
+            <li><strong>单一事实源（Single Source of Truth）设计：</strong>MySQL（Kysely / mysql2）作为会话、轮次、工具调用、checkpoint 与执行记录的唯一事实源，Redis 仅承担任务队列及可重建的广播/缓存；队列已确定纳入后续方案，技术选型和投递语义待定，尚未在骨架中实现。Redis Stream 故障接力暂不考虑。</li>
         </ul>
       </div>
     </section>
@@ -104,7 +102,7 @@
     <!-- 技术栈 -->
     <section class="card">
       <h2 class="section-title">技术栈</h2>
-      <p class="tech-note"><strong>Agent-v8 实践：</strong>已落地 NestJS 网关、独立 Worker、TypeScript Agent Loop、Anthropic 兼容模型调用、SSE 事件流与工具安全边界；<strong>架构设计：</strong>MySQL 作为会话与执行状态的事实源，Redis 承担队列、广播与缓存，当前骨架仍保留进程内实现用于本地验证。</p>
+      <p class="tech-note"><strong>Agent-v8 已验证：</strong>NestJS 网关、独立 Worker、LLM Agent Runtime、Anthropic 兼容模型调用、SSE 断线续订与工具注册；<strong>后续设计：</strong>遵循 Single Source of Truth，MySQL（Kysely / mysql2）保存会话与执行事实，Redis 仅承担任务队列及可重建的广播/缓存。多副本存储和队列仍处于设计阶段。</p>
 
       <div class="tech-group">
         <h3 class="tech-cat">Backend &amp; Languages</h3>
@@ -128,6 +126,7 @@
           <span class="badge" data-ico="DS" style="background:#4d6bfe">DeepSeek</span>
           <span class="badge" style="background:#412991"><img class="bi" src="https://cdn.simpleicons.org/openai/white" alt="technology icon" onerror="this.style.display='none'">OpenAI SDK</span>
           <span class="badge" data-ico="AS" style="background:#cc785c">Anthropic SDK</span>
+          <span class="badge" data-ico="LLM" style="background:#6d28d9">LLM</span>
           <span class="badge" data-ico="AI" style="background:#8b5cf6">AI Agent</span>
           <span class="badge" data-ico="PE" style="background:#0891b2">Prompt Engineering</span>
           <span class="badge" data-ico="SSE" style="background:#2563eb">SSE</span>
