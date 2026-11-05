@@ -70,6 +70,16 @@ body {
   padding-left: 12px;
   margin-bottom: 18px;
 }
+.tech-note {
+  margin: -4px 0 22px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent-2);
+  background: #faf8fc;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+.tech-note strong { color: var(--ink); }
 
 /* 信息表 */
 .info-table { width: 100%; border-collapse: collapse; }
@@ -220,11 +230,27 @@ body {
 
 /* 打印 / 导出 PDF */
 @media print {
+  @page { margin: 12mm; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  body { background: #fff; }
-  .container { margin-top: 0; padding-top: 16px; }
-  .card { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
-  .job, .project, .tech-group, .badge { break-inside: avoid; }
+  body { background: #fff; font-size: 12px; line-height: 1.55; }
+  .hero { padding: 34px 20px 30px; }
+  .avatar { width: 82px; height: 82px; margin-bottom: 14px; }
+  .name { font-size: 28px; }
+  .tagline { margin-top: 6px; font-size: 13px; }
+  .title-line { margin-top: 3px; font-size: 12px; }
+  .links { margin-top: 14px; }
+  .links a { padding: 5px 14px; font-size: 12px; }
+  .container { margin-top: 0; padding: 10px 0 20px; }
+  .card { box-shadow: none; border: 1px solid var(--border); padding: 18px 22px; margin-bottom: 12px; break-inside: auto; page-break-inside: auto; }
+  .section-title { font-size: 17px; margin-bottom: 12px; }
+  .job, .project, .tech-group { break-inside: auto; page-break-inside: auto; }
+  .job-head, .project-head, .project-name, .tech-cat { break-after: avoid; page-break-after: avoid; }
+  .skill-list li, .project-list li, .badge { break-inside: avoid; page-break-inside: avoid; }
+  .tech-note { margin: -2px 0 16px; padding: 9px 11px; font-size: 11px; }
+  .tech-group { margin-bottom: 14px; }
+  .tech-cat { font-size: 15px; margin-bottom: 9px; }
+  .badges { gap: 7px; }
+  .badge { height: 26px; padding: 0 10px; font-size: 11px; }
   .links a { border-color: rgba(255, 255, 255, 0.7); }
-  .footer { padding: 16px 20px; }
+  .footer { padding: 12px 20px; }
 }
