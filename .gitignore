@@ -1,2 +1,7 @@
 # 生成产物（PDF 仅本地保留，不纳入部署）
 *.pdf
+
+# 本地预览与浏览器临时目录
+.chrome-profile-*/
+tmp/
+*-preview.png

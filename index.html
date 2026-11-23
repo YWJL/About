@@ -1,211 +1,220 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>袁逢春 · 个人简历</title>
-  <meta name="description" content="袁逢春 - Node.js 后端开发工程师 / AI Agent 工程师 | NestJS & TypeScript | 高并发核心服务" />
-  <meta property="og:title" content="袁逢春 · 个人简历" />
-  <meta property="og:description" content="5 年 Node.js 后端经验，NestJS / TypeScript / AI Agent 工程实践" />
+  <title>袁逢春 | AI Agent / Node.js 后端开发工程师</title>
+  <meta name="description" content="袁逢春，5 年+ Node.js 后端开发经验，AI Agent 服务框架 / NestJS / 高并发 API / 异步任务，期望城市：苏州、上海、杭州、扬州。" />
+  <meta property="og:title" content="袁逢春 | AI Agent / Node.js 后端开发工程师" />
+  <meta property="og:description" content="5 年+ 服务端开发 | NestJS / TypeScript / AI Agent 工程实践" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="头像.jpg" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="resume.css" />
 </head>
-<body>
-  <!-- 顶部主视觉 -->
-  <header class="hero">
-    <div class="hero-inner">
+<body class="backend">
+  <main class="resume">
+    <header class="profile">
+      <div>
+        <h1>袁逢春</h1>
+        <p class="profile-title">AI Agent / Node.js 后端开发工程师</p>
+        <p class="profile-subtitle">5 年+ 服务端开发 | AI Agent 工程 / NestJS / 高并发 API</p>
+        <div class="intent">
+          <span><b>期望岗位：</b>AI Agent 后端 / Node.js 后端开发工程师</span>
+          <span><b>期望城市：</b>苏州 / 上海 / 杭州 / 扬州</span>
+        </div>
+        <div class="contact">
+          <a href="tel:+8618021238351">180 2123 8351</a>
+          <a href="mailto:201256153@qq.com">201256153@qq.com</a>
+          <span>上海 / 苏州 · 可接受异地</span>
+          <a href="https://ywjl.github.io/About/">ywjl.github.io/About</a>
+        </div>
+      </div>
       <img class="avatar" src="头像.jpg" alt="袁逢春头像" />
-      <h1 class="name">袁逢春</h1>
-      <p class="tagline">NestJS &amp; TypeScript · 高并发核心服务 · LLM / AI Agent 工程实践</p>
-      <p class="title-line">Node.js 后端开发工程师 / AI Agent 工程师 · 5 年工作经验</p>
-      <nav class="links">
-        <a href="https://ywjl.github.io/About/" target="_blank" rel="noopener">自我介绍</a>
-        <a href="mailto:201256153@qq.com">201256153@qq.com</a>
-        <a href="tel:+8618021238351">+86 18021238351</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <!-- 个人信息 -->
-    <section class="card">
-      <h2 class="section-title">个人信息</h2>
-      <table class="info-table">
-        <tbody>
-          <tr><th>基本信息</th><td>袁逢春 / 男 / 2000 年</td></tr>
-          <tr><th>学历专业</th><td>本科 · 苏州工学院</td></tr>
-          <tr><th>主修学科</th><td>计算机学院 · 物联网工程</td></tr>
-          <tr><th>工作经验</th><td>5 年</td></tr>
-          <tr><th>期望职位</th><td>Node.js 后端开发工程师 / AI Agent 工程师</td></tr>
-          <tr><th>期望城市</th><td>苏州、杭州、上海、扬州</td></tr>
-          <tr><th>联系方式</th><td>微信 / 手机 18021238351 · 邮箱 <a href="mailto:201256153@qq.com">201256153@qq.com</a></td></tr>
-          <tr><th>个人主页</th><td><a href="https://ywjl.github.io/About/" target="_blank" rel="noopener">https://ywjl.github.io/About/</a></td></tr>
-        </tbody>
-      </table>
+    <section class="section">
+      <h2>核心能力</h2>
+      <dl class="skills">
+        <div class="skill-row">
+          <dt>AI Agent</dt>
+          <dd>Anthropic/OpenAI SDK、DeepSeek 兼容端点、tool_use/tool calling、流式输出、工具注册与沙箱、会话与任务事件流</dd>
+        </div>
+        <div class="skill-row">
+          <dt>Node.js 后端</dt>
+          <dd>Node.js、TypeScript、NestJS、Express、REST、gRPC、DTO/Zod/class-validator、鉴权限流、统一异常与响应封装、SSE</dd>
+        </div>
+        <div class="skill-row">
+          <dt>任务与事件流</dt>
+          <dd>conversationId/taskId、SSE、Last-Event-ID/cursor 补发、心跳与 TTL、排队与粘性路由、断线续订</dd>
+        </div>
+        <div class="skill-row">
+          <dt>数据与一致性</dt>
+          <dd>MySQL/Kysely、Redis、MongoDB、Elasticsearch；事务、唯一索引、幂等、分布式锁、追加事件日志、checkpoint、hold/settle/release 账本</dd>
+        </div>
+        <div class="skill-row">
+          <dt>异步与集成</dt>
+          <dd>阿里云 MNS 消息队列、消费重试与幂等、Excel 导出、OSS、邮件/企微通知、第三方接口对接</dd>
+        </div>
+        <div class="skill-row">
+          <dt>交付与稳定性</dt>
+          <dd>OpenResty/Nginx、ELK、Docker、Kubernetes、GitLab CI/CD、Consul、Kafka、HPA</dd>
+        </div>
+      </dl>
     </section>
 
-    <!-- 个人优势 -->
-    <section class="card">
-      <h2 class="section-title">个人优势</h2>
-      <ul class="skill-list">
-        <li>5 年 Node.js 后端经验，参与月请求量超 <strong>128 亿</strong>的核心服务建设与稳定性治理，熟悉从数据处理、接口交付到线上运维的完整链路。</li>
-        <li>主导核心服务从 Express 向 NestJS 演进，通过模块化、依赖注入、装饰器路由和统一拦截器/异常处理，降低复杂业务耦合并统一接口治理方式。</li>
-        <li>围绕线上问题定位和流量治理，建设 ELK 链路日志、Redis 缓存/分布式锁/限流，并落地 Docker、Kubernetes 与 GitLab CI/CD 流水线。</li>
-        <li>开展 LLM / Agent 工程验证：实现模型流式输出和工具调用闭环，并拆分 NestJS 网关与独立 Worker，探索长任务、多轮会话和任务调度方案。</li>
-        <li>深度使用 <strong>Claude Code</strong> AI 编程助手，以 AI 编码 + 人工 Code Review 协作模式覆盖代码生成、重构、调试与文档编写，沉淀可复用的业务 Prompt 模板。</li>
-      </ul>
-    </section>
-
-    <!-- 工作经历 -->
-    <section class="card">
-      <h2 class="section-title">工作经历</h2>
-      <div class="job">
-        <div class="job-head">
-          <span class="job-title">上海生腾数据科技有限公司苏州分公司 · 后端开发工程师</span>
-          <span class="job-period">2022.06 – 至今</span>
+    <section class="section">
+      <h2>工作经历</h2>
+      <article class="job">
+        <div class="entry-head">
+          <div>
+            <h3 class="entry-title">后端开发工程师（2021.06 实习入职，2022.06 转正）</h3>
+            <p class="entry-company">上海生腾数据科技有限公司苏州分公司 | 启信宝 APP 核心服务与架构治理</p>
+          </div>
+          <span class="entry-date">2021.06 - 至今</span>
         </div>
-
-        <div class="project">
-          <h3 class="project-name">启信宝 APP 核心服务与架构治理</h3>
-          <ul class="project-list">
-            <li>主导启信宝 APP 版本需求开发，覆盖集团、查风险、司法大数据、团队版、主搜等核心模块；参与表结构设计、PRD 评审与进度管理，负责从数据清洗、ES 同步到接口开发、客户端对接的完整链路。</li>
-            <li>基于公司核心服务的 NestJS + TypeScript 框架推进 Express → NestJS 迁移，采用模块化、依赖注入、装饰器路由及全局拦截器/异常过滤器组织业务，统一请求校验、响应封装、鉴权限流与异常处理；迁移后相关代码量缩减约 20%。</li>
-            <li>设计全链路日志监控体系：统一日志字段规范，打通客户端 → 服务端 → 后台 → ES 的链路追踪，结合 ELK 将线上故障定位时间由小时级缩短至分钟级。</li>
-            <li>维护 OpenResty 网关层，负责反向代理、负载均衡与流量调度；结合 Redis 实现缓存、分布式锁与接口限流，保障后端集群高可用。</li>
-            <li>搭建 GitLab CI/CD 多环境（SIT / UAT / PROD）流水线：集成 ESLint 卡点、Docker 镜像构建推送私有 Registry、K8s 部署与 HPA 自动扩缩容，并通过脚本动态拉取 Consul 配置，实现配置与代码解耦的标准化持续交付。</li>
-            <li>落地 LLM AI 能力：基于 OpenAI SDK 实现 SSE 流式响应、Prompt 与模型统一管理机制，支撑业务侧 AI 功能快速接入。</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 项目经历 -->
-    <section class="card">
-      <h2 class="section-title">项目经历</h2>
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-name">agent-v8 · NestJS + Agent 服务框架</h3>
-          <span class="job-period">2026-09-01 至今</span>
-        </div>
-        <ul class="project-list">
-            <li>基于公司 NestJS 框架实践，构建 <strong>NestJS 网关 + 独立 Worker</strong> 的方向验证骨架（由 app-v8 裁剪而来）：网关承接鉴权、限频和 SSE 透传，Worker 承接 Agent 执行，验证服务职责拆分与独立扩缩容边界。</li>
-            <li>实现可迭代的 <strong>LLM Agent Runtime</strong>：使用 TypeScript、<strong>@anthropic-ai/sdk</strong> 与 DeepSeek Anthropic 兼容接口，串联模型生成、tool_use、工具结果回填和多轮推理，并加入轮数上限、取消信号与任务生命周期控制，验证可中断的长任务执行流程。</li>
-            <li>实现 <strong>conversationId / taskId</strong> 两级任务标识及 SSE 事件流：前者关联多轮对话，后者关联单轮任务；通过事件序号与 Last-Event-ID / cursor 支持断线续订，避免重连时重复发起模型调用；排队状态和多副本路由列入后续设计。</li>
-            <li>抽象基于 schema 与 handler 的工具注册机制，验证文件读写、内容搜索和命令执行工具接入；通过工作区路径/符号链接校验、命令白名单和超时约束，划定工具执行边界。</li>
-            <li><strong>单一事实源（Single Source of Truth）设计：</strong>MySQL（Kysely / mysql2）作为会话、轮次、工具调用、checkpoint 与执行记录的唯一事实源，Redis 仅承担任务队列及可重建的广播/缓存；队列已确定纳入后续方案，技术选型和投递语义待定，尚未在骨架中实现。Redis Stream 故障接力暂不考虑。</li>
+        <ul class="bullets">
+          <li>负责集团、查风险、司法大数据、团队版、主搜等核心模块的服务端交付，参与 PRD 评审、表结构设计、数据清洗、ES 同步、接口开发与客户端联调。</li>
+          <li>主导核心服务从 <strong>Express 向 NestJS</strong> 演进：模块化、依赖注入、装饰器路由与统一拦截器/异常过滤器收敛鉴权、限流、校验、响应结构和错误语义，相关代码量减少约 <strong>20%</strong>。</li>
+          <li>参与月请求量超 <strong>128 亿次</strong>的核心服务稳定性治理：Redis 缓存、分布式锁和限流处理热点请求，OpenResty 负载均衡、ELK 链路日志和 K8s 多环境发布定位线上问题。</li>
+          <li>统一客户端 → 服务端 → 后台 → ES 的日志字段与 <code>request_id</code> 链路标识，建设 ELK 日志监控体系，将线上故障定位时间由小时级缩短到分钟级。</li>
+          <li>主导数据导出服务的统一导出管线重构，覆盖导出工厂/基类、消费重试与 OSS/邮件通知链路。</li>
+          <li>搭建 GitLab CI/CD 多环境流水线（ESLint 卡点、Docker 镜像与私有 Registry、Kubernetes 部署和 HPA），通过 Consul 动态拉取配置，标准化 SIT / UAT / PROD 交付流程。</li>
+          <li>基于 OpenAI SDK 封装 SSE 流式响应与 Prompt/模型配置，支持前端渐进式展示模型结果；在个人项目中进一步实现 Anthropic 兼容模型、tool_use 回填与任务事件流。</li>
         </ul>
+      </article>
+    </section>
+
+    <section class="section page-break">
+      <h2>项目经历</h2>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">agent-v8 | NestJS 网关 + Agent Worker 服务框架</h3>
+          <span class="entry-date">个人项目 | 2026.09 - 至今</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护。已按生产化标准落地：MySQL 作为唯一事实源承载事件日志、队列、会话快照与账本，Worker 可随时重启与扩缩容，崩溃后由其他 Worker 接管续跑。</p>
+        <p class="proj-line"><strong>技术栈：</strong>TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
+
+        <p class="arch-flow">
+          <span>客户端</span><i>—SSE→</i>
+          <span>NestJS 网关：鉴权 / 限频 / 排队进度 / 转发</span><i>—HTTP→</i>
+          <span>Agent Worker × N：队列消费 / 工具 / 模型循环</span><i>⇄</i>
+          <span>MySQL：队列 / 事件日志 / 账本</span>
+        </p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>框架分层：</strong>网关只保留鉴权、限频、参数校验、排队进度与 SSE 原样透传，会话、队列消费、模型循环、工具执行全部下沉到独立 Worker；两侧独立构建、发版、扩缩容，网关重启不影响在跑任务。</li>
+          <li><strong>事件日志与恢复：</strong>MySQL 只追加事件日志（任务内 seq 即 SSE id）+ checkpoint 快照，按轮提交保证取消/失败不留脏数据；任意 Worker 都能按 seq 回放补齐断线，会话上下文可从任意 checkpoint 重建。</li>
+          <li><strong>队列与路由：</strong>任务表即队列，按 conversationId 哈希分片，SKIP LOCKED 领取 + 会话互斥锁保证同会话串行；taskId → workerId 粘性路由，心跳超时快速失败，已结束任务任意 Worker 可回放。</li>
+          <li><strong>幂等与账本：</strong>operationId 三层唯一键（发起任务 / 工具调用 / 记账），副作用工具按参数指纹跨重试去重；hold / settle / release 追加式账本 + 透支上限，按 max_tokens 预扣、按 usage 结算，重复结算不二次扣费。</li>
+          <li><strong>故障接管：</strong>Worker 失联后由其他 Worker 条件抢占（worker_id + lease_epoch 做 fencing），释放旧预扣、追加 resumed 事件并按轮重跑；网关保持 SSE 连接，客户端看到 recovering → resumed 即无感续订。</li>
+          <li><strong>工具运行时：</strong>tool_use → 执行 → tool_result 回填循环，控制最大轮数与结果截断；文件读写与命令执行统一做路径逃逸、符号链接校验、命令白名单和超时，执行中断按副作用标记 unknown 交模型决策。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>双 Worker 压测 <strong>7.74 tasks/s</strong>（单 Worker 3.87，线性扩展）；3000 条排队连接下轮询仍线性（7.8k QPS），实测定位「排队位置查询随队列深度线性增长」为成本主因，关闭周期刷新后扫描行数 <strong>-79%</strong>。</li>
+          <li>自检覆盖 <strong>51 项端到端 + 50 项数据层</strong>（队列串行、幂等、账本、接管、恢复）；崩溃接管演示中杀掉执行中的 Worker，心跳 TTL 到期后由另一 Worker 接管同一 taskId，事件 id 连续、attempt=2 跑完，客户端无需重连。</li>
+          <li>压测反查出并发上限失效的调度 bug（派发到登记之间的窗口未计入并发，实际并发约为配置 2 倍），修复后吞吐与理论上限吻合到 <strong>81%</strong>；网关工程从 792 个 ts 文件裁剪到 233 个（<strong>-71%</strong>）。</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">ai-coding | Claude Code 风格 Agent 内核与服务化</h3>
+          <span class="entry-date">个人项目 | 2026.08 - 2026.11</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>从 0 实现的 Claude Code 风格 Agent：一套内核同时驱动 CLI 与 HTTP 服务，覆盖主循环、工具调用、会话上下文和安全边界；提供 JSON 与 SSE 两种接口，可直接作为 Dify / 前端的 Agent 后端。</p>
+        <p class="proj-line"><strong>技术栈：</strong>TypeScript / Node.js / Anthropic SDK / SSE / Dify OpenAPI / Vitest</p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>主循环与阶段机：</strong>以 stop_reason 驱动循环、工具结果回填与终止判断，默认上限 30 轮；用 requirements → build 两段式阶段机区分需求沟通与代码执行，模型调用带指数退避重试。</li>
+          <li><strong>工具与安全边界：</strong>schema + handler 注册读、写、列目录、grep、执行命令与删除等工具；路径穿越与符号链接校验、命令两级白名单（可执行程序 + git/npm 子命令）、15s 超时，覆盖与删除动作走策略（默认拒绝）。</li>
+          <li><strong>会话与服务化：</strong>conversationId → Session 池，同会话串行、空闲 TTL 回收；HTTP 层做 Bearer 鉴权、参数校验、JSON / SSE 双出口，运行中 reset 返回 409，并提供 health 探针。</li>
+          <li><strong>可测试性与集成：</strong>注入假模型跑通循环、阶段切换与 HTTP 接线，测试不依赖模型密钥；输出 Dify 自定义工具的 OpenAPI 描述与接入文档。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>CLI 与服务端复用同一内核，<code>run / stream / reset / health</code> 四个接口用 curl 与假模型端到端跑通，可被 Dify 直接导入为自定义工具。</li>
+          <li>假模型覆盖循环、阶段切换、工具调用与 HTTP 接线，CI 不需要模型密钥即可回归这些分支。</li>
+          <li>工具安全边界可配置：路径逃逸、符号链接和非白名单命令会被拦截，破坏性动作默认拒绝，模型只能在工作区内动手。</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">数据导出服务 | 统一导出管线重构</h3>
+          <span class="entry-date">工作项目</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>启信宝企业数据导出服务：上游下单后投递 MNS 消息，服务消费后按产品配置生成多 Sheet Excel、上传 OSS 并邮件通知，覆盖企业、人员、风险、司法等 40+ 导出场景；主导完成该服务的统一导出管线重构。</p>
+        <p class="proj-line"><strong>技术栈：</strong>Koa / Knex / MySQL / Redis / 阿里云 MNS / OSS / ExcelJS / Docker</p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>统一导出管线重构：</strong>把分散的导出实现收敛为 productId → ExportClass 的导出工厂 + ExportBase 基类，统一 getData → generateExcel → uploadFile → sendMail 生命周期与列配置、多 Sheet 写出；HTTP 入口只保留调试与重导出，正式导出统一走队列。</li>
+          <li><strong>消费可靠性：</strong>重构中统一 MNS 长轮询消费与 dequeueCount 重试策略，用「可见性超时前删除 + 定时兜底删除」避免重复消费与重复导出，失败落站内消息并触发企微告警。</li>
+          <li><strong>交付与通知：</strong>重构中统一 OSS 上传与邮件通知（附件超限改为下载链接），用 request_id 串联消费日志与订单状态。</li>
+          <li><strong>架构文档：</strong>把管线不变量、生命周期与扩展步骤沉淀为架构文档和 ADR。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>40+ 导出类型收敛到统一基类与工厂，新增导出只注册 productId → ExportClass，流程代码不再复制。</li>
+          <li>重试与超时删除覆盖消费异常，减少重复导出与卡单，失败可通过站内消息与企微告警定位。</li>
+          <li>导出与在线查询解耦，长耗时任务不阻塞接口响应。</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">bug-track | NestJS + gRPC 双栈微服务</h3>
+          <span class="entry-date">个人项目 | 2026.09</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>简化版 Bug 管理系统的微服务后端框架：两个平级服务各自同时暴露 HTTP 与 gRPC，bug-service 通过 gRPC 调用 file-service 完成附件上传与校验，用 txt 文件持久化替代数据库，重点验证服务契约、双通道错误语义和启动器抽象。</p>
+        <p class="proj-line"><strong>技术栈：</strong>NestJS / gRPC / pnpm workspace / class-validator / TypeScript / txt 文件持久化</p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>工程组织：</strong>用 pnpm workspace 管理 apps/bug-service、apps/file-service、libs/proto（共享 proto 契约）与 libs/common（双栈启动器、存储、异常过滤器、响应拦截器）。</li>
+          <li><strong>跨服务附件链路：</strong>multipart 先进内存，Buffer 经 gRPC 转交 file-service，bug-service 只保存 FILE-id；ClientsModule.registerAsync 从环境变量组装客户端与 proto loader。</li>
+          <li><strong>双栈一致性：</strong>connectMicroservice + inheritAppConfig 复用同一 IOC 容器和全局管道/过滤器；AllExceptionsFilter 按 host 类型分别产出 HTTP 响应与 gRPC status；txt 持久化用写串行队列避免并发覆盖。</li>
+          <li><strong>启动器抽象：</strong>把 HTTP 端口、gRPC 地址、package 与 proto 路径收敛到 bootstrapHybridApp，新服务只需提供模块和参数即可同时具备两条通道。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>HTTP 与 gRPC 两条通道分别用 curl / grpcurl 验证通过，附件上传、查询、下载全链路跑通，跨服务调用毫秒级完成。</li>
+          <li>gRPC 侧异常返回明确 status 而非 “2 UNKNOWN”，入参校验在两条通道同时生效；两个服务可用 pnpm dev 并行启动联调。</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>个人优势</h2>
+      <ol class="bullets">
+        <li><strong>后端基本功扎实：</strong>5 年+ Node.js 服务端经验，参与月请求量超 128 亿次的核心服务建设与稳定性治理，主导 Express → NestJS 迁移并减少约 20% 代码量。</li>
+        <li><strong>Agent 能力可落地：</strong>既能写网关 / Worker 服务框架，也能写 Agent 内核与工具沙箱；SSE 任务流与工具安全边界有实现经验，会话恢复、幂等与账本有完整设计方案，能区分已实现能力与设计边界。</li>
+        <li><strong>稳定性与交付闭环：</strong>Redis 缓存与限流、分布式锁、OpenResty、ELK、Docker/K8s、GitLab CI/CD、Consul 均有实际使用和排障经验。</li>
+        <li><strong>工程表达：</strong>习惯把架构取舍、故障边界和验证方式写清楚，能把方案讲明白、把风险提前暴露。</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>教育背景</h2>
+      <div class="education">
+        <p><strong>苏州工学院</strong> · 物联网工程 · 本科（2022.06 毕业）</p>
+        <p>计算机学院</p>
       </div>
     </section>
 
-    <!-- 技术栈 -->
-    <section class="card">
-      <h2 class="section-title">技术栈</h2>
-      <p class="tech-note"><strong>Agent-v8 已验证：</strong>NestJS 网关、独立 Worker、LLM Agent Runtime、Anthropic 兼容模型调用、SSE 断线续订与工具注册；<strong>后续设计：</strong>遵循 Single Source of Truth，MySQL（Kysely / mysql2）保存会话与执行事实，Redis 仅承担任务队列及可重建的广播/缓存。多副本存储和队列仍处于设计阶段。</p>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">Backend &amp; Languages</h3>
-        <div class="badges">
-          <span class="badge" style="background:#339933"><img class="bi" src="https://cdn.simpleicons.org/nodedotjs/white" alt="technology icon" onerror="this.style.display='none'">Node.js</span>
-          <span class="badge" style="background:#000000"><img class="bi" src="https://cdn.simpleicons.org/express/white" alt="technology icon" onerror="this.style.display='none'">Express</span>
-          <span class="badge" style="background:#e0234e"><img class="bi" src="https://cdn.simpleicons.org/nestjs/white" alt="technology icon" onerror="this.style.display='none'">NestJS</span>
-          <span class="badge" style="background:#3178c6"><img class="bi" src="https://cdn.simpleicons.org/typescript/white" alt="technology icon" onerror="this.style.display='none'">TypeScript</span>
-          <span class="badge light" style="background:#f7df1e"><img class="bi" src="https://cdn.simpleicons.org/javascript/333333" alt="technology icon" onerror="this.style.display='none'">JavaScript</span>
-          <span class="badge" style="background:#3776ab"><img class="bi" src="https://cdn.simpleicons.org/python/white" alt="technology icon" onerror="this.style.display='none'">Python</span>
-          <span class="badge" data-ico="RX" style="background:#b7178c">RxJS</span>
-          <span class="badge" data-ico="Z" style="background:#3068b7">Zod</span>
-          <span class="badge" style="background:#5a29e4"><img class="bi" src="https://cdn.simpleicons.org/axios/white" alt="technology icon" onerror="this.style.display='none'">Axios</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">AI &amp; LLM</h3>
-        <div class="badges">
-          <span class="badge" data-ico="CC" style="background:#d97706">Claude Code</span>
-          <span class="badge" data-ico="DS" style="background:#4d6bfe">DeepSeek</span>
-          <span class="badge" style="background:#412991"><img class="bi" src="https://cdn.simpleicons.org/openai/white" alt="technology icon" onerror="this.style.display='none'">OpenAI SDK</span>
-          <span class="badge" data-ico="AS" style="background:#cc785c">Anthropic SDK</span>
-          <span class="badge" data-ico="LLM" style="background:#6d28d9">LLM</span>
-          <span class="badge" data-ico="AI" style="background:#8b5cf6">AI Agent</span>
-          <span class="badge" data-ico="PE" style="background:#0891b2">Prompt Engineering</span>
-          <span class="badge" data-ico="SSE" style="background:#2563eb">SSE</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">Databases &amp; Caching</h3>
-        <div class="badges">
-          <span class="badge" style="background:#4479a1"><img class="bi" src="https://cdn.simpleicons.org/mysql/white" alt="technology icon" onerror="this.style.display='none'">MySQL</span>
-          <span class="badge" data-ico="KY" style="background:#34495e">Kysely</span>
-          <span class="badge" style="background:#4479a1"><img class="bi" src="https://cdn.simpleicons.org/mysql/white" alt="technology icon" onerror="this.style.display='none'">mysql2</span>
-          <span class="badge" style="background:#cc2927"><img class="bi" src="https://cdn.simpleicons.org/microsoftsqlserver/white" alt="technology icon" onerror="this.style.display='none'">SQL Server</span>
-          <span class="badge" style="background:#47a248"><img class="bi" src="https://cdn.simpleicons.org/mongodb/white" alt="technology icon" onerror="this.style.display='none'">MongoDB</span>
-          <span class="badge" data-ico="MG" style="background:#47a248">Mongoose</span>
-          <span class="badge" style="background:#dc382d"><img class="bi" src="https://cdn.simpleicons.org/redis/white" alt="technology icon" onerror="this.style.display='none'">Redis</span>
-          <span class="badge" data-ico="IO" style="background:#dc382d">ioredis</span>
-          <span class="badge" style="background:#005571"><img class="bi" src="https://cdn.simpleicons.org/elasticsearch/white" alt="technology icon" onerror="this.style.display='none'">Elasticsearch</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">Frontend &amp; Web</h3>
-        <div class="badges">
-          <span class="badge" style="background:#e34f26"><img class="bi" src="https://cdn.simpleicons.org/html5/white" alt="technology icon" onerror="this.style.display='none'">HTML5</span>
-          <span class="badge" style="background:#1572b6"><img class="bi" src="https://cdn.simpleicons.org/css/white" alt="technology icon" onerror="this.style.display='none'">CSS3</span>
-          <span class="badge" style="background:#4fc08d"><img class="bi" src="https://cdn.simpleicons.org/vuedotjs/white" alt="technology icon" onerror="this.style.display='none'">Vue.js</span>
-          <span class="badge" style="background:#009639"><img class="bi" src="https://cdn.simpleicons.org/nginx/white" alt="technology icon" onerror="this.style.display='none'">Nginx / OpenResty</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">DevOps &amp; Others</h3>
-        <div class="badges">
-          <span class="badge" style="background:#2496ed"><img class="bi" src="https://cdn.simpleicons.org/docker/white" alt="technology icon" onerror="this.style.display='none'">Docker</span>
-          <span class="badge" style="background:#2496ed"><img class="bi" src="https://cdn.simpleicons.org/docker/white" alt="technology icon" onerror="this.style.display='none'">Docker Compose</span>
-          <span class="badge" style="background:#326ce5"><img class="bi" src="https://cdn.simpleicons.org/kubernetes/white" alt="technology icon" onerror="this.style.display='none'">Kubernetes</span>
-          <span class="badge" style="background:#fc6d26"><img class="bi" src="https://cdn.simpleicons.org/gitlab/white" alt="technology icon" onerror="this.style.display='none'">GitLab CI/CD</span>
-          <span class="badge" data-ico="CO" style="background:#2f855a">Consul</span>
-          <span class="badge" data-ico="OSS" style="background:#ff6a00">Ali OSS</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">Tools I use</h3>
-        <div class="badges">
-          <span class="badge" data-ico="VS" style="background:#007acc">VSCode</span>
-          <span class="badge" style="background:#f05032"><img class="bi" src="https://cdn.simpleicons.org/git/white" alt="technology icon" onerror="this.style.display='none'">Git</span>
-          <span class="badge" data-ico="SV" style="background:#809cc9">SVN</span>
-          <span class="badge" style="background:#ff6c37"><img class="bi" src="https://cdn.simpleicons.org/postman/white" alt="technology icon" onerror="this.style.display='none'">Postman</span>
-          <span class="badge" data-ico="AF" style="background:#ff7300">APIFox</span>
-          <span class="badge" style="background:#4b32c3"><img class="bi" src="https://cdn.simpleicons.org/eslint/white" alt="technology icon" onerror="this.style.display='none'">ESLint</span>
-          <span class="badge light" style="background:#f7b93e"><img class="bi" src="https://cdn.simpleicons.org/prettier/333333" alt="technology icon" onerror="this.style.display='none'">Prettier</span>
-          <span class="badge" style="background:#f69220"><img class="bi" src="https://cdn.simpleicons.org/pnpm/white" alt="technology icon" onerror="this.style.display='none'">pnpm</span>
-          <span class="badge" style="background:#2496ed"><img class="bi" src="https://cdn.simpleicons.org/docker/white" alt="technology icon" onerror="this.style.display='none'">Docker Desktop</span>
-        </div>
-      </div>
-
-      <div class="tech-group">
-        <h3 class="tech-cat">Messaging &amp; Observability</h3>
-        <div class="badges">
-          <span class="badge" style="background:#005571"><img class="bi" src="https://cdn.simpleicons.org/logstash/white" alt="technology icon" onerror="this.style.display='none'">Logstash</span>
-          <span class="badge" style="background:#e8488b"><img class="bi" src="https://cdn.simpleicons.org/kibana/white" alt="technology icon" onerror="this.style.display='none'">Kibana</span>
-          <span class="badge" style="background:#231f20"><img class="bi" src="https://cdn.simpleicons.org/apachekafka/white" alt="technology icon" onerror="this.style.display='none'">Kafka</span>
-          <span class="badge" data-ico="Lo" style="background:#009688">Loki</span>
-          <span class="badge" data-ico="PT" style="background:#00b5ad">Promtail</span>
-          <span class="badge light" style="background:#ffcc01"><img class="bi" src="https://cdn.simpleicons.org/clickhouse/333333" alt="technology icon" onerror="this.style.display='none'">ClickHouse</span>
-        </div>
-      </div>
-    </section>
-
+    <p class="footnote">个人项目代码均已在本地跑通并通过自检（agent-v8：51 项端到端 + 50 项数据层）；个人项目不计入线上经历</p>
   </main>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> 袁逢春 · Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
