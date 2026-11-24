@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -70,7 +70,7 @@
             <h3 class="entry-title">后端开发工程师（2021.06 实习入职，2022.06 转正）</h3>
             <p class="entry-company">上海生腾数据科技有限公司苏州分公司 | 启信宝 APP 核心服务与架构治理</p>
           </div>
-          <span class="entry-date">2021.06 - 至今</span>
+          <span class="entry-date">2021.06 - 2026.07</span>
         </div>
         <ul class="bullets">
           <li>负责集团、查风险、司法大数据、团队版、主搜等核心模块的服务端交付，参与 PRD 评审、表结构设计、数据清洗、ES 同步、接口开发与客户端联调。</li>
@@ -82,69 +82,26 @@
           <li>基于 OpenAI SDK 封装 SSE 流式响应与 Prompt/模型配置，支持前端渐进式展示模型结果；在个人项目中进一步实现 Anthropic 兼容模型、tool_use 回填与任务事件流。</li>
         </ul>
       </article>
+
+      <article class="job">
+        <div class="entry-head">
+          <div>
+            <h3 class="entry-title">高级全栈工程师</h3>
+            <p class="entry-company">上海燮贤信息科技有限公司 | ASC Vision IT · 企业级多租户 SaaS（Apollo）</p>
+          </div>
+          <span class="entry-date">2026.09 - 2026.11</span>
+        </div>
+        <ul class="bullets">
+          <li>负责 Apollo 企业级多租户 SaaS 平台的业务模块交付：组织权限、项目任务、工时、审批、费用、采购、账单等，独立完成需求澄清、数据建模、接口设计、前后端开发与联调。</li>
+          <li>后端使用 Node.js / NestJS / TypeScript，前端使用 React；MySQL 建模与 EXPLAIN 索引优化，Redis 缓存。</li>
+          <li>落地租户 / 用户 / 组织 / 角色关系与 RBAC 数据范围权限，在接口、查询、缓存链路做租户隔离；处理跨服务调用、部分失败与数据一致性补偿。</li>
+          <li>编写单元、集成与端到端测试，覆盖越权、异常输入、并发冲突与重复请求；主导 AI 辅助分析、开发、测试与独立验证，保证交付质量。</li>
+        </ul>
+      </article>
     </section>
 
     <section class="section page-break">
       <h2>项目经历</h2>
-
-      <article class="project">
-        <div class="entry-head">
-          <h3 class="entry-title">agent-v8 | NestJS 网关 + Agent Worker 服务框架</h3>
-          <span class="entry-date">个人项目 | 2026.09 - 至今</span>
-        </div>
-
-        <p class="proj-line"><strong>项目简介：</strong>面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护。已按生产化标准落地：MySQL 作为唯一事实源承载事件日志、队列、会话快照与账本，Worker 可随时重启与扩缩容，崩溃后由其他 Worker 接管续跑。</p>
-        <p class="proj-line"><strong>技术栈：</strong>TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
-
-        <p class="arch-flow">
-          <span>客户端</span><i>—SSE→</i>
-          <span>NestJS 网关：鉴权 / 限频 / 排队进度 / 转发</span><i>—HTTP→</i>
-          <span>Agent Worker × N：队列消费 / 工具 / 模型循环</span><i>⇄</i>
-          <span>MySQL：队列 / 事件日志 / 账本</span>
-        </p>
-
-        <p class="subhead">个人职责</p>
-        <ol class="bullets compact">
-          <li><strong>框架分层：</strong>网关只保留鉴权、限频、参数校验、排队进度与 SSE 原样透传，会话、队列消费、模型循环、工具执行全部下沉到独立 Worker；两侧独立构建、发版、扩缩容，网关重启不影响在跑任务。</li>
-          <li><strong>事件日志与恢复：</strong>MySQL 只追加事件日志（任务内 seq 即 SSE id）+ checkpoint 快照，按轮提交保证取消/失败不留脏数据；任意 Worker 都能按 seq 回放补齐断线，会话上下文可从任意 checkpoint 重建。</li>
-          <li><strong>队列与路由：</strong>任务表即队列，按 conversationId 哈希分片，SKIP LOCKED 领取 + 会话互斥锁保证同会话串行；taskId → workerId 粘性路由，心跳超时快速失败，已结束任务任意 Worker 可回放。</li>
-          <li><strong>幂等与账本：</strong>operationId 三层唯一键（发起任务 / 工具调用 / 记账），副作用工具按参数指纹跨重试去重；hold / settle / release 追加式账本 + 透支上限，按 max_tokens 预扣、按 usage 结算，重复结算不二次扣费。</li>
-          <li><strong>故障接管：</strong>Worker 失联后由其他 Worker 条件抢占（worker_id + lease_epoch 做 fencing），释放旧预扣、追加 resumed 事件并按轮重跑；网关保持 SSE 连接，客户端看到 recovering → resumed 即无感续订。</li>
-          <li><strong>工具运行时：</strong>tool_use → 执行 → tool_result 回填循环，控制最大轮数与结果截断；文件读写与命令执行统一做路径逃逸、符号链接校验、命令白名单和超时，执行中断按副作用标记 unknown 交模型决策。</li>
-        </ol>
-
-        <p class="subhead">项目业绩</p>
-        <ol class="bullets compact">
-          <li>双 Worker 压测 <strong>7.74 tasks/s</strong>（单 Worker 3.87，线性扩展）；3000 条排队连接下轮询仍线性（7.8k QPS），实测定位「排队位置查询随队列深度线性增长」为成本主因，关闭周期刷新后扫描行数 <strong>-79%</strong>。</li>
-          <li>自检覆盖 <strong>51 项端到端 + 50 项数据层</strong>（队列串行、幂等、账本、接管、恢复）；崩溃接管演示中杀掉执行中的 Worker，心跳 TTL 到期后由另一 Worker 接管同一 taskId，事件 id 连续、attempt=2 跑完，客户端无需重连。</li>
-          <li>压测反查出并发上限失效的调度 bug（派发到登记之间的窗口未计入并发，实际并发约为配置 2 倍），修复后吞吐与理论上限吻合到 <strong>81%</strong>；网关工程从 792 个 ts 文件裁剪到 233 个（<strong>-71%</strong>）。</li>
-        </ol>
-      </article>
-
-      <article class="project">
-        <div class="entry-head">
-          <h3 class="entry-title">ai-coding | Claude Code 风格 Agent 内核与服务化</h3>
-          <span class="entry-date">个人项目 | 2026.08 - 2026.11</span>
-        </div>
-
-        <p class="proj-line"><strong>项目简介：</strong>从 0 实现的 Claude Code 风格 Agent：一套内核同时驱动 CLI 与 HTTP 服务，覆盖主循环、工具调用、会话上下文和安全边界；提供 JSON 与 SSE 两种接口，可直接作为 Dify / 前端的 Agent 后端。</p>
-        <p class="proj-line"><strong>技术栈：</strong>TypeScript / Node.js / Anthropic SDK / SSE / Dify OpenAPI / Vitest</p>
-
-        <p class="subhead">个人职责</p>
-        <ol class="bullets compact">
-          <li><strong>主循环与阶段机：</strong>以 stop_reason 驱动循环、工具结果回填与终止判断，默认上限 30 轮；用 requirements → build 两段式阶段机区分需求沟通与代码执行，模型调用带指数退避重试。</li>
-          <li><strong>工具与安全边界：</strong>schema + handler 注册读、写、列目录、grep、执行命令与删除等工具；路径穿越与符号链接校验、命令两级白名单（可执行程序 + git/npm 子命令）、15s 超时，覆盖与删除动作走策略（默认拒绝）。</li>
-          <li><strong>会话与服务化：</strong>conversationId → Session 池，同会话串行、空闲 TTL 回收；HTTP 层做 Bearer 鉴权、参数校验、JSON / SSE 双出口，运行中 reset 返回 409，并提供 health 探针。</li>
-          <li><strong>可测试性与集成：</strong>注入假模型跑通循环、阶段切换与 HTTP 接线，测试不依赖模型密钥；输出 Dify 自定义工具的 OpenAPI 描述与接入文档。</li>
-        </ol>
-
-        <p class="subhead">项目业绩</p>
-        <ol class="bullets compact">
-          <li>CLI 与服务端复用同一内核，<code>run / stream / reset / health</code> 四个接口用 curl 与假模型端到端跑通，可被 Dify 直接导入为自定义工具。</li>
-          <li>假模型覆盖循环、阶段切换、工具调用与 HTTP 接线，CI 不需要模型密钥即可回归这些分支。</li>
-          <li>工具安全边界可配置：路径逃逸、符号链接和非白名单命令会被拦截，破坏性动作默认拒绝，模型只能在工作区内动手。</li>
-        </ol>
-      </article>
 
       <article class="project">
         <div class="entry-head">
@@ -174,24 +131,85 @@
       <article class="project">
         <div class="entry-head">
           <h3 class="entry-title">bug-track | NestJS + gRPC 双栈微服务</h3>
-          <span class="entry-date">个人项目 | 2026.09</span>
+          <span class="entry-date">工作项目 | 2026.09 - 2026.11</span>
         </div>
 
-        <p class="proj-line"><strong>项目简介：</strong>简化版 Bug 管理系统的微服务后端框架：两个平级服务各自同时暴露 HTTP 与 gRPC，bug-service 通过 gRPC 调用 file-service 完成附件上传与校验，用 txt 文件持久化替代数据库，重点验证服务契约、双通道错误语义和启动器抽象。</p>
-        <p class="proj-line"><strong>技术栈：</strong>NestJS / gRPC / pnpm workspace / class-validator / TypeScript / txt 文件持久化</p>
+        <p class="proj-line"><strong>项目简介：</strong>面向多租户 SaaS 的 Bug 管理系统微服务：bug-service 与 file-service 各自同时暴露 HTTP 与 gRPC，bug-service 通过 gRPC 调用 file-service 完成附件上传与读取，业务数据按租户落在 MySQL。</p>
+        <p class="proj-line"><strong>技术栈：</strong>NestJS / gRPC / TypeScript / MySQL（多租户）/ 文件服务 / pnpm workspace</p>
 
         <p class="subhead">个人职责</p>
         <ol class="bullets compact">
-          <li><strong>工程组织：</strong>用 pnpm workspace 管理 apps/bug-service、apps/file-service、libs/proto（共享 proto 契约）与 libs/common（双栈启动器、存储、异常过滤器、响应拦截器）。</li>
-          <li><strong>跨服务附件链路：</strong>multipart 先进内存，Buffer 经 gRPC 转交 file-service，bug-service 只保存 FILE-id；ClientsModule.registerAsync 从环境变量组装客户端与 proto loader。</li>
-          <li><strong>双栈一致性：</strong>connectMicroservice + inheritAppConfig 复用同一 IOC 容器和全局管道/过滤器；AllExceptionsFilter 按 host 类型分别产出 HTTP 响应与 gRPC status；txt 持久化用写串行队列避免并发覆盖。</li>
-          <li><strong>启动器抽象：</strong>把 HTTP 端口、gRPC 地址、package 与 proto 路径收敛到 bootstrapHybridApp，新服务只需提供模块和参数即可同时具备两条通道。</li>
+          <li><strong>微服务拆分：</strong>按 bug-service / file-service 拆分服务，共享 proto 契约；两个服务同时暴露 HTTP 与 gRPC，HTTP 便于调试、gRPC 用于服务间调用。</li>
+          <li><strong>跨服务文件链路：</strong>multipart 先进内存，Buffer 经 gRPC 转交 file-service 持久化，bug-service 只保存文件引用；ClientsModule 组装 gRPC 客户端与 proto loader。</li>
+          <li><strong>多租户数据：</strong>业务数据落 MySQL，按 tenantId 做多租户隔离，查询条件与索引都带租户维度，避免跨租户读写。</li>
+          <li><strong>双栈一致性：</strong>connectMicroservice + inheritAppConfig 复用同一 IOC 容器和全局管道/过滤器；AllExceptionsFilter 按 host 类型分别产出 HTTP 响应与 gRPC status。</li>
         </ol>
 
         <p class="subhead">项目业绩</p>
         <ol class="bullets compact">
-          <li>HTTP 与 gRPC 两条通道分别用 curl / grpcurl 验证通过，附件上传、查询、下载全链路跑通，跨服务调用毫秒级完成。</li>
-          <li>gRPC 侧异常返回明确 status 而非 “2 UNKNOWN”，入参校验在两条通道同时生效；两个服务可用 pnpm dev 并行启动联调。</li>
+          <li>Bug 管理模块随业务系统交付上线，覆盖提交、指派、状态流转、评论、附件与筛选查询，成为业务团队统一的问题反馈与跟踪入口。</li>
+          <li>把 Bug 反馈绑定到业务对象：从业务页面直接发起，自动携带租户、业务类型、业务 ID 与页面上下文，研发拿到即可复现，减少客服与研发之间的往返确认。</li>
+          <li>Bug、评论与附件按租户隔离，配合 RBAC 控制查看 / 处理 / 关闭权限；附件统一由 file-service 持久化，bug-service 不落盘。</li>
+          <li>HTTP + gRPC 双栈分别对外 / 对内，内部通过 gRPC 校验文件与查询元数据；统一异常与入参校验，模块可复用到其他业务线。</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">ai-coding | Claude Code 风格 Agent 内核与服务化</h3>
+          <span class="entry-date">个人项目 | 2026.09.01 - 2026.09.30</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>从 0 实现的 Claude Code 风格 Agent：一套内核同时驱动 CLI 与 HTTP 服务，覆盖主循环、工具调用、会话上下文和安全边界；提供 JSON 与 SSE 两种接口，可直接作为 Dify / 前端的 Agent 后端。</p>
+        <p class="proj-line"><strong>技术栈：</strong>TypeScript / Node.js / Anthropic SDK / SSE / Dify OpenAPI / Vitest</p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>主循环与阶段机：</strong>以 stop_reason 驱动循环、工具结果回填与终止判断，默认上限 30 轮；用 requirements → build 两段式阶段机区分需求沟通与代码执行，模型调用带指数退避重试。</li>
+          <li><strong>工具与安全边界：</strong>schema + handler 注册读、写、列目录、grep、执行命令与删除等工具；路径穿越与符号链接校验、命令两级白名单（可执行程序 + git/npm 子命令）、15s 超时，覆盖与删除动作走策略（默认拒绝）。</li>
+          <li><strong>会话与服务化：</strong>conversationId → Session 池，同会话串行、空闲 TTL 回收；HTTP 层做 Bearer 鉴权、参数校验、JSON / SSE 双出口，运行中 reset 返回 409，并提供 health 探针。</li>
+          <li><strong>可测试性与集成：</strong>注入假模型跑通循环、阶段切换与 HTTP 接线，测试不依赖模型密钥；输出 Dify 自定义工具的 OpenAPI 描述与接入文档。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>CLI 与服务端复用同一内核，<code>run / stream / reset / health</code> 四个接口用 curl 与假模型端到端跑通，可被 Dify 直接导入为自定义工具。</li>
+          <li>假模型覆盖循环、阶段切换、工具调用与 HTTP 接线，CI 不需要模型密钥即可回归这些分支。</li>
+          <li>工具安全边界可配置：路径逃逸、符号链接和非白名单命令会被拦截，破坏性动作默认拒绝，模型只能在工作区内动手。</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <div class="entry-head">
+          <h3 class="entry-title">agent-v8 | NestJS 网关 + Agent Worker 服务框架</h3>
+          <span class="entry-date">个人项目 | 2026.10.09 - 至今</span>
+        </div>
+
+        <p class="proj-line"><strong>项目简介：</strong>面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护。已按生产化标准落地：MySQL 作为唯一事实源承载事件日志、队列、会话快照与账本，Worker 可随时重启与扩缩容，崩溃后由其他 Worker 接管续跑。</p>
+        <p class="proj-line"><strong>技术栈：</strong>TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
+
+        <p class="arch-flow">
+          <span>客户端</span><i>—SSE→</i>
+          <span>NestJS 网关：鉴权/限频/进度/转发</span><i>—HTTP→</i>
+          <span>Worker ×N：队列/工具/模型</span><i>⇄</i>
+          <span>MySQL：队列/事件/账本</span>
+        </p>
+
+        <p class="subhead">个人职责</p>
+        <ol class="bullets compact">
+          <li><strong>框架分层：</strong>网关只保留鉴权、限频、参数校验、排队进度与 SSE 原样透传，会话、队列消费、模型循环、工具执行全部下沉到独立 Worker；两侧独立构建、发版、扩缩容，网关重启不影响在跑任务。</li>
+          <li><strong>事件日志与恢复：</strong>MySQL 只追加事件日志（任务内 seq 即 SSE id）+ checkpoint 快照，按轮提交保证取消/失败不留脏数据；任意 Worker 都能按 seq 回放补齐断线，会话上下文可从任意 checkpoint 重建。</li>
+          <li><strong>队列与路由：</strong>任务表即队列，按 conversationId 哈希分片，SKIP LOCKED 领取 + 会话互斥锁保证同会话串行；taskId → workerId 粘性路由，心跳超时快速失败，已结束任务任意 Worker 可回放。</li>
+          <li><strong>幂等与账本：</strong>operationId 三层唯一键（发起任务 / 工具调用 / 记账），副作用工具按参数指纹跨重试去重；hold / settle / release 追加式账本 + 透支上限，按 max_tokens 预扣、按 usage 结算，重复结算不二次扣费。</li>
+          <li><strong>故障接管：</strong>Worker 失联后由其他 Worker 条件抢占（worker_id + lease_epoch 做 fencing），释放旧预扣、追加 resumed 事件并按轮重跑；网关保持 SSE 连接，客户端看到 recovering → resumed 即无感续订。</li>
+          <li><strong>工具运行时：</strong>tool_use → 执行 → tool_result 回填循环，控制最大轮数与结果截断；文件读写与命令执行统一做路径逃逸、符号链接校验、命令白名单和超时，执行中断按副作用标记 unknown 交模型决策。</li>
+        </ol>
+
+        <p class="subhead">项目业绩</p>
+        <ol class="bullets compact">
+          <li>双 Worker 压测 <strong>7.74 tasks/s</strong>（单 Worker 3.87，线性扩展）；3000 条排队连接下轮询仍线性（7.8k QPS），实测定位「排队位置查询随队列深度线性增长」为成本主因，关闭周期刷新后扫描行数 <strong>-79%</strong>。</li>
+          <li>自检覆盖 <strong>51 项端到端 + 50 项数据层</strong>（队列串行、幂等、账本、接管、恢复）；崩溃接管演示中杀掉执行中的 Worker，心跳 TTL 到期后由另一 Worker 接管同一 taskId，事件 id 连续、attempt=2 跑完，客户端无需重连。</li>
+          <li>压测发现并发上限失效的调度 bug：任务派发后到登记前有一段 <code>await</code> 窗口未被计入并发，实际并发约为配置的 2 倍；加「已派发未登记」占位计数后，吞吐回落到理论值的 <strong>81%</strong>。</li>
         </ol>
       </article>
     </section>

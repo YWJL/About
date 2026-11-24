@@ -180,6 +180,10 @@ a:hover {
   page-break-inside: avoid;
 }
 
+.job + .job {
+  margin-top: 12px;
+}
+
 .entry-head {
   display: flex;
   justify-content: space-between;
@@ -569,8 +573,8 @@ strong {
 
   .project {
     margin-top: 8px;
-    break-inside: avoid;
-    page-break-inside: avoid;
+    break-inside: auto;
+    page-break-inside: auto;
   }
 
   .subhead {
@@ -627,7 +631,7 @@ strong {
 
   body.backend {
     font-size: 9.85pt;
-    line-height: 1.46;
+    line-height: 1.43;
   }
 
   body.agent .section {
