@@ -88,21 +88,6 @@
     <section class="section">
       <h2>项目经历</h2>
 
-      <article class="project">
-        <div class="entry-head">
-          <h3 class="entry-title">启信宝核心服务 | Express → NestJS 演进与稳定性治理</h3>
-          <span class="entry-date">2021.06 - 2026.07</span>
-        </div>
-        <p class="proj-line"><strong>技术栈：</strong>NestJS / TypeScript / Redis / OpenResty / ELK / Kubernetes / GitLab CI</p>
-        <p class="proj-line"><strong>项目简介：</strong>负责集团、查风险、司法大数据、团队版、主搜等核心模块，服务月请求量超 128 亿次。历史代码以 Express 为主，模块耦合、重复逻辑多，鉴权、限流与错误语义分散在各处。</p>
-        <ul class="bullets compact">
-          <li>引入 NestJS 模块化、依赖注入与装饰器路由，按业务域拆分模块，并用全局拦截器 / 异常过滤器收敛鉴权、限流、校验、响应与错误语义，重复代码减少约 <strong>20%</strong>。</li>
-          <li>引入 Redis 缓存、分布式锁与接口限流处理热点请求，配合 OpenResty 负载均衡、ELK 链路日志与 K8s 多环境发布，支撑 128 亿次 / 月请求下的稳定性治理。</li>
-          <li>统一 client → 服务端 → 后台 → ES 的 <code>request_id</code> 与日志字段，建设 ELK 监控，把线上故障定位从小时级缩短到分钟级。</li>
-          <li>引入 GitLab CI/CD 多环境流水线（ESLint 卡点、Docker / 私有 Registry、K8s + HPA、Consul 配置），标准化 SIT / UAT / PROD 交付。</li>
-          <li>主导数据导出服务重构：40+ 导出类型收敛到 <code>productId → ExportClass</code> 工厂 + <code>ExportBase</code> 基类，统一多 Sheet / OSS / 邮件链路；引入 MNS 消费重试与可见性超时删除，减少重复导出与卡单。</li>
-        </ul>
-      </article>
 
       <article class="project">
         <div class="entry-head">
@@ -121,21 +106,6 @@
       </article>
 
 
-      <article class="project">
-        <div class="entry-head">
-          <h3 class="entry-title">Apollo 多租户 SaaS 平台 | 业务模块与 Bug 管理</h3>
-          <span class="entry-date">2026.09 - 2026.11</span>
-        </div>
-        <p class="proj-line"><strong>技术栈：</strong>NestJS / TypeScript / React / MySQL / Redis / gRPC / 文件服务</p>
-        <p class="proj-line"><strong>项目简介：</strong>面向企业级多租户场景的 SaaS 平台，覆盖组织权限、项目任务、工时、审批、费用、采购、账单等模块；多租户隔离和权限控制是核心约束。</p>
-        <ul class="bullets compact">
-          <li>引入租户 / 用户 / 组织 / 角色模型与 RBAC 数据范围权限，在接口、查询、缓存链路强制 <code>tenantId</code> 隔离，避免跨租户读写。</li>
-          <li>使用 NestJS + TypeScript 交付业务模块，React 构建业务页面；MySQL 建模与 EXPLAIN 索引优化，Redis 缓存热点数据。</li>
-          <li>补充业务绑定的 Bug 反馈模块：从业务页面直接发起，自动携带租户、业务类型、业务 ID 与页面上下文，研发可直接复现，减少客服与研发之间的往返确认。</li>
-          <li>Bug 服务与文件服务拆成独立微服务（HTTP + gRPC 双栈），附件经 gRPC 交由 file-service 持久化，bug-service 不落盘；Bug / 评论 / 附件按租户隔离并接入 RBAC。</li>
-          <li>编写单元 / 集成 / E2E 测试，覆盖越权、异常输入、并发冲突与重复请求；主导 AI 辅助分析、开发、测试与独立验证。</li>
-        </ul>
-      </article>
 
       <article class="project">
         <div class="entry-head">
