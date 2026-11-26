@@ -45,27 +45,27 @@
       <dl class="skills">
         <div class="skill-row">
           <dt>AI Agent</dt>
-          <dd>Anthropic/OpenAI SDK、DeepSeek 兼容端点、tool_use/tool calling、流式输出、工具注册与沙箱、会话与任务事件流</dd>
+          <dd><strong>Anthropic/OpenAI SDK</strong>、DeepSeek 兼容端点、<strong>tool_use/tool calling</strong>、流式输出、工具注册与沙箱、会话与任务事件流</dd>
         </div>
         <div class="skill-row">
           <dt>Node.js 后端</dt>
-          <dd>Node.js、TypeScript、NestJS、Express、REST、gRPC、DTO/Zod/class-validator、鉴权限流、统一异常与响应封装、SSE</dd>
+          <dd>Node.js、TypeScript、<strong>NestJS</strong>、Express、REST、<strong>gRPC</strong>、DTO/Zod/class-validator、鉴权限流、统一异常与响应封装、SSE</dd>
         </div>
         <div class="skill-row">
           <dt>任务与事件流</dt>
-          <dd>conversationId/taskId、SSE、Last-Event-ID/cursor 补发、心跳与 TTL、排队与粘性路由、断线续订</dd>
+          <dd><strong>conversationId/taskId</strong>、<strong>SSE</strong>、Last-Event-ID/cursor 补发、心跳与 TTL、排队与粘性路由、断线续订</dd>
         </div>
         <div class="skill-row">
           <dt>数据与一致性</dt>
-          <dd>MySQL/Kysely、Redis、MongoDB、Elasticsearch；事务、唯一索引、幂等、分布式锁、追加事件日志、checkpoint、hold/settle/release 账本</dd>
+          <dd><strong>MySQL/Kysely</strong>、<strong>Redis</strong>、MongoDB、Elasticsearch；事务、唯一索引、<strong>幂等</strong>、分布式锁、追加事件日志、checkpoint、hold/settle/release 账本</dd>
         </div>
         <div class="skill-row">
           <dt>异步与集成</dt>
-          <dd>阿里云 MNS 消息队列、消费重试与幂等、Excel 导出、OSS、邮件/企微通知、第三方接口对接</dd>
+          <dd><strong>阿里云 MNS</strong> 消息队列、消费重试与幂等、Excel 导出、<strong>OSS</strong>、邮件/企微通知、第三方接口对接</dd>
         </div>
         <div class="skill-row">
           <dt>交付与稳定性</dt>
-          <dd>OpenResty/Nginx、ELK、Docker、Kubernetes、GitLab CI/CD、Consul、Kafka、HPA</dd>
+          <dd><strong>OpenResty/Nginx</strong>、ELK、Docker、<strong>Kubernetes</strong>、<strong>GitLab CI/CD</strong>、Consul、Kafka、HPA</dd>
         </div>
       </dl>
     </section>
@@ -94,7 +94,7 @@
           <h3 class="entry-title">启信商城与 VIP 权益团队版 | 额度、支付与数据一致性</h3>
           <span class="entry-date">工作项目</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>Redis / MongoDB / MySQL / 分布式锁 / 支付调用</p>
+        <p class="proj-line"><strong>技术栈：</strong><strong>Redis</strong> / MongoDB / <strong>MySQL</strong> / <strong>分布式锁</strong> / 支付调用</p>
         <p class="proj-line"><strong>项目简介：</strong>覆盖团队成员管理、签到、邀请、扩额续费与商城额度消费的统一 VIP 权益体系，服务于会员开通、续费与额度转化。</p>
         <ul class="bullets compact">
           <li>重构团队成员活跃天数存储，新增「已活跃天数」字段与唯一联合索引（user_id, team_id），替代 Redis 全量计数缓存，支撑高效查询；MySQL 慢查询减少 <strong>76.1%</strong>。</li>
@@ -109,16 +109,16 @@
 
       <article class="project">
         <div class="entry-head">
-          <h3 class="entry-title">ai-coding | Claude Code 风格 Agent 内核与服务化</h3>
-          <span class="entry-date">2026.09.01 - 2026.09.30</span>
+          <h3 class="entry-title">集团司法案件 AI 解读 | 风险检索、启信分与 LLM 解读</h3>
+          <span class="entry-date">工作项目</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>TypeScript / Node.js / Anthropic SDK / SSE / Dify OpenAPI / Vitest</p>
-        <p class="proj-line"><strong>项目简介：</strong>从 0 实现的 Claude Code 风格 Agent：一套内核同时驱动 CLI 与 HTTP 服务，提供 JSON / SSE 接口，可作为 Dify / 前端的 Agent 后端；难点在循环控制、上下文管理、工具安全与可测试性。</p>
+        <p class="proj-line"><strong>技术栈：</strong><strong>Elasticsearch</strong> / <strong>LLM</strong> / <strong>Kafka</strong> / <strong>CDC</strong> / SSE</p>
+        <p class="proj-line"><strong>项目简介：</strong>面向集团企业司法案件，提供风险检索、启信分评估与 AI 解读，提升案件数据利用率与产品付费意愿。</p>
         <ul class="bullets compact">
-          <li>引入 stop_reason 驱动的主循环 + requirements → build 阶段机，解决从需求沟通到代码执行的流程控制；模型调用带指数退避重试，默认上限 30 轮。</li>
-          <li>引入 schema + handler 工具注册与安全边界：路径穿越与符号链接校验、命令两级白名单、15s 超时，覆盖 / 删除默认拒绝，解决模型执行越界问题。</li>
-          <li>引入 conversationId → Session 池（同会话串行、空闲 TTL 回收）与 Bearer 鉴权、JSON / SSE 双出口、运行中 reset 409，解决多轮会话与并发控制。</li>
-          <li>引入假模型测试与 Dify OpenAPI 接入，测试不依赖模型密钥即可回归循环、阶段切换、工具调用与 HTTP 接线。</li>
+          <li>设计“案件检索 → 数据治理 → 规则设计 → LLM 解读”分析链路，输出企业涉诉分析、经营状况与风险建议，把司法数据转成可解释的决策依据；解读结果通过 SSE 流式返回。</li>
+          <li>基于 <strong>Elasticsearch</strong> 构建多维度案件检索与筛选，支持按案由、案件进程、时间、地区组合查询，为启信分与风险解读提供数据支撑。</li>
+          <li>设计启信分评分模型：按司法风险、企业规模、经营质量等维度分层建模，采用“维度分组 → 规则打分 → 加权汇总 → 等级映射”计算总分；输出特征原始值、命中区间、得分贡献与评分快照，支撑评分解释与规则迭代。</li>
+          <li>实现启信分增量刷新：监听业务表变更（兼容多系统写入），经 <strong>CDC</strong> 投递 <strong>Kafka</strong> 触发分数重算；按企业维度限频削峰，夜间补偿未完成任务，避免重复计算与高峰抖动。</li>
         </ul>
       </article>
 
@@ -127,7 +127,7 @@
           <h3 class="entry-title">agent-v8 | NestJS 网关 + Agent Worker 服务框架</h3>
           <span class="entry-date">2026.10.09 - 至今</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
+        <p class="proj-line"><strong>技术栈：</strong>TypeScript / <strong>NestJS</strong> / <strong>SSE</strong> / Anthropic SDK / <strong>MySQL · Kysely</strong> / Docker</p>
         <p class="proj-line"><strong>项目简介：</strong>面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护；已按生产化标准落地 MySQL 事件日志、队列、账本与故障接管。</p>
         <ul class="bullets compact">
           <li>引入网关 / Worker 拆分与 SSE taskId 事件流，解决长任务占连接、断线重连与重复调用模型的问题；实测断点续订、同会话 409 并发保护。</li>
