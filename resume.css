@@ -364,14 +364,6 @@ ol.bullets {
   font-size: 12px;
 }
 
-.entry-head + .proj-line strong {
-  color: var(--ink);
-}
-
-.entry-head + .proj-line strong:first-child {
-  color: var(--accent);
-}
-
 .proj-line strong {
   color: var(--accent);
 }
