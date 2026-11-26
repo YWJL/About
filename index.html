@@ -140,6 +140,25 @@
       </article>
     </section>
 
+    <section class="section">
+      <h2>技术亮点</h2>
+      <ol class="bullets">
+        <li><strong>高并发核心服务：</strong>128 亿次/月；主导 Express → NestJS 迁移，重复代码减少约 20%；用 Redis / ELK / OpenResty / K8s 做稳定性治理。</li>
+        <li><strong>数据一致性：</strong>支付与额度、Redis / MySQL 双写与缓存失效、主从延迟超买、额度过期治理，均有落地实现或设计方案。</li>
+        <li><strong>异步任务：</strong>MNS 导出管线、消费重试与超时删除、CDC → Kafka 增量刷新、企业维度限频削峰。</li>
+        <li><strong>Agent 平台：</strong>网关 / Worker 拆分、SSE 事件流、MySQL 事件日志 / 队列 / 账本、Worker 故障接管。</li>
+        <li><strong>可观测性：</strong>request_id 贯穿支付 / 权益 / 额度 / 导出链路，状态迁移日志 + 对账 + 告警。</li>
+        <li><strong>工程交付：</strong>GitLab CI/CD、Docker / K8s、AI 辅助研发与测试门禁。</li>
+        <li><strong>多租户 / 权限：</strong>tenantId + RBAC，在接口、查询、缓存链路做租户隔离，避免跨租户读写。</li>
+        <li><strong>测试与质量：</strong>单元 / 集成 / E2E，覆盖越权、并发、重复请求；假模型回归不依赖模型密钥。</li>
+        <li><strong>数据迁移：</strong>Redis → MySQL 清洗脚本、幂等 upsert、断点续跑与总量校验，保证迁移前后一致。</li>
+        <li><strong>缓存治理：</strong>Cache-Aside、事务提交后失效、短 TTL、关键判断回源主库。</li>
+        <li><strong>稳定性治理：</strong>限流 / 熔断 / 降级、队列容量与快速失败、故障告警与对账。</li>
+        <li><strong>性能优化：</strong>慢查询治理、联合索引、热点 key 拆分、分页 / 游标优化。</li>
+        <li><strong>架构治理：</strong>统一导出管线 / ADR、模块化边界与可复用组件。</li>
+      </ol>
+    </section>
+
     <p class="footnote">个人项目代码均已在本地跑通并通过自检（agent-v8：51 项端到端 + 50 项数据层）；个人项目不计入线上经历</p>
   </main>
 </body>
