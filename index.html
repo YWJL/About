@@ -49,7 +49,7 @@
         </div>
         <div class="skill-row">
           <dt>Node.js 后端</dt>
-          <dd>Node.js、TypeScript、NestJS、Express、REST、gRPC、DTO/Zod/class-validator、鉴权限流、统一异常与响应封装、SSE</dd>
+          <dd>Node.js、TypeScript、NestJS、Express、REST、gRPC、DTO/Zod/class-validator、统一异常与响应封装、SSE</dd>
         </div>
         <div class="skill-row">
           <dt>任务与事件流</dt>
@@ -65,7 +65,7 @@
         </div>
         <div class="skill-row">
           <dt>交付与稳定性</dt>
-          <dd>OpenResty/Nginx、ELK、Docker、Kubernetes、GitLab CI/CD、Consul、Kafka、HPA</dd>
+          <dd>OpenResty/Nginx、ELK、Docker、GitLab CI/CD、Consul、Kafka、HPA</dd>
         </div>
       </dl>
     </section>
@@ -91,11 +91,11 @@
 
       <article class="project">
         <div class="entry-head">
-          <h3 class="entry-title">启信商城与 VIP 权益团队版 | 额度、支付与数据一致性</h3>
+          <h3 class="entry-title">启信商城与 VIP 权益团队版 | 额度与数据一致性</h3>
           <span class="entry-date">工作项目</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>Redis / MongoDB / MySQL / 分布式锁 / 支付调用</p>
-        <p class="proj-line"><strong>项目简介：</strong>覆盖团队成员管理、签到、邀请、扩额续费与商城额度消费的统一 VIP 权益体系，服务于会员开通、续费与额度转化。</p>
+        <p class="proj-line">Redis / MongoDB / MySQL / 分布式锁</p>
+        <p class="proj-line">覆盖团队成员管理、签到、邀请、扩额续费与商城额度消费的统一 VIP 权益体系，服务于会员开通、续费与额度转化。</p>
         <ul class="bullets compact">
           <li>重构团队成员活跃天数存储，新增「已活跃天数」字段与唯一联合索引（user_id, team_id），替代 Redis 全量计数缓存，支撑高效查询；MySQL 慢查询减少 <strong>76.1%</strong>。</li>
           <li>编写 Redis → MySQL 数据清洗脚本，按接口幂等分批迁移全量用户数据，保证迁移前后一致；Redis 内存占用下降 <strong>34.4%</strong>。</li>
@@ -112,8 +112,8 @@
           <h3 class="entry-title">集团司法案件 AI 解读 | 风险检索、启信分与 LLM 解读</h3>
           <span class="entry-date">工作项目</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>Elasticsearch / LLM / Kafka / CDC / SSE</p>
-        <p class="proj-line"><strong>项目简介：</strong>面向集团企业司法案件，提供风险检索、启信分评估与 AI 解读，提升案件数据利用率与产品付费意愿。</p>
+        <p class="proj-line">Elasticsearch / LLM / Kafka / CDC / SSE</p>
+        <p class="proj-line">面向集团企业司法案件，提供风险检索、启信分评估与 AI 解读，提升案件数据利用率与产品付费意愿。</p>
         <ul class="bullets compact">
           <li>设计“案件检索 → 数据治理 → 规则设计 → LLM 解读”分析链路，输出企业涉诉分析、经营状况与风险建议，把司法数据转成可解释的决策依据；解读结果通过 SSE 流式返回。</li>
           <li>基于 Elasticsearch 构建多维度案件检索与筛选，支持按案由、案件进程、时间、地区组合查询，为启信分与风险解读提供数据支撑。</li>
@@ -127,8 +127,8 @@
           <h3 class="entry-title">agent-v8 | NestJS 网关 + Agent Worker 服务框架</h3>
           <span class="entry-date">2026.10.09 - 至今</span>
         </div>
-        <p class="proj-line"><strong>技术栈：</strong>TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
-        <p class="proj-line"><strong>项目简介：</strong>面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护；已按生产化标准落地 MySQL 事件日志、队列、账本与故障接管。</p>
+        <p class="proj-line">TypeScript / NestJS / SSE / Anthropic SDK / MySQL · Kysely / Docker</p>
+        <p class="proj-line">面向 AI 平台的会话服务框架：把 LLM 会话拆成无状态 NestJS 网关与独立 Agent Worker，覆盖流式生成、工具调用、断线续订与并发保护；已按生产化标准落地 MySQL 事件日志、队列、账本与故障接管。</p>
         <ul class="bullets compact">
           <li>引入网关 / Worker 拆分与 SSE taskId 事件流，解决长任务占连接、断线重连与重复调用模型的问题；实测断点续订、同会话 409 并发保护。</li>
           <li>引入 MySQL 追加事件日志 + checkpoint + 按轮提交，解决 Worker 崩溃 / 重启后的会话恢复与脏数据问题；任意 Worker 可按 seq 回放。</li>
@@ -143,17 +143,16 @@
     <section class="section">
       <h2>技术亮点</h2>
       <ol class="bullets">
-        <li><strong>高并发核心服务：</strong>128 亿次/月；主导 Express → NestJS 迁移，重复代码减少约 20%；用 Redis / ELK / OpenResty / K8s 做稳定性治理。</li>
-        <li><strong>数据一致性：</strong>支付与额度、Redis / MySQL 双写与缓存失效、主从延迟超买、额度过期治理，均有落地实现或设计方案。</li>
+        <li><strong>高并发核心服务：</strong>128 亿次/月；主导 Express → NestJS 迁移，重复代码减少约 20%；用 Redis / ELK / OpenResty 做稳定性治理。</li>
+        <li><strong>数据一致性：</strong>额度与权益、Redis / MySQL 双写与缓存失效、主从延迟超买、额度过期治理，均有落地实现或设计方案。</li>
         <li><strong>异步任务：</strong>MNS 导出管线、消费重试与超时删除、CDC → Kafka 增量刷新、企业维度限频削峰。</li>
         <li><strong>Agent 平台：</strong>网关 / Worker 拆分、SSE 事件流、MySQL 事件日志 / 队列 / 账本、Worker 故障接管。</li>
-        <li><strong>可观测性：</strong>request_id 贯穿支付 / 权益 / 额度 / 导出链路，状态迁移日志 + 对账 + 告警。</li>
-        <li><strong>工程交付：</strong>GitLab CI/CD、Docker / K8s、AI 辅助研发与测试门禁。</li>
-        <li><strong>多租户 / 权限：</strong>tenantId + RBAC，在接口、查询、缓存链路做租户隔离，避免跨租户读写。</li>
+        <li><strong>可观测性：</strong>request_id 贯穿权益 / 额度 / 导出链路，状态迁移日志 + 对账 + 告警。</li>
+        <li><strong>工程交付：</strong>GitLab CI/CD、Docker、AI 辅助研发与测试门禁。</li>
         <li><strong>测试与质量：</strong>单元 / 集成 / E2E，覆盖越权、并发、重复请求；假模型回归不依赖模型密钥。</li>
         <li><strong>数据迁移：</strong>Redis → MySQL 清洗脚本、幂等 upsert、断点续跑与总量校验，保证迁移前后一致。</li>
         <li><strong>缓存治理：</strong>Cache-Aside、事务提交后失效、短 TTL、关键判断回源主库。</li>
-        <li><strong>稳定性治理：</strong>限流 / 熔断 / 降级、队列容量与快速失败、故障告警与对账。</li>
+        <li><strong>稳定性治理：</strong>熔断 / 降级、队列容量与快速失败、故障告警与对账。</li>
         <li><strong>性能优化：</strong>慢查询治理、联合索引、热点 key 拆分、分页 / 游标优化。</li>
         <li><strong>架构治理：</strong>统一导出管线 / ADR、模块化边界与可复用组件。</li>
       </ol>
